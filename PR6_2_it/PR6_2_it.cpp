@@ -12,7 +12,7 @@ void Create(int* a, const int size, const int Low, const int High)
 void Print(int* a, const int size)
 {
     for (int i = 0; i < size; i++)
-        cout << a[i] << " ";
+        cout << setw(3) << a[i];
     cout << endl;
 }
 
@@ -39,11 +39,11 @@ int main()
     int High = 100;
 
     Create(a, z, Low, High);
-    cout << "Початоковий масив: ";
+    cout << "First arr: ";
     Print(a, z);
 
     Inverse(a, z);
-    cout << "      Новий масив: ";
+    cout << "New arr:   ";
     Print(a, z);
 
     return 0;

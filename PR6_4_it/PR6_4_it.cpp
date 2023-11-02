@@ -12,7 +12,7 @@ void Create(int* a, const int size, const int Low, const int High)
 void Print(int* a, const int size)
 {
     for (int i = 0; i < size; i++)
-        cout << a[i] << " ";
+        cout << setw(3) << a[i];
     cout << endl;
 }
 
@@ -106,16 +106,16 @@ int main()
     int High = 100;
 
     Create(a, n, Low, High);
-    cout << "Початоковий масив: ";
+    cout << "First arr: ";
     Print(a, n);
 
     int sum = SumNegative(a, n);
-    cout << "Сума відʼємених елементів масиву = " << sum << endl;
+    cout << "Sum Negative = " << sum << endl;
 
     int product = Task1_2(a, n);
-    cout << "Добуток елементів масиву між min i max = " << product << endl;
+    cout << "Product numbers from min till max = " << product << endl;
 
     SortEven(a, n);
-    cout << "Посортований масив: ";
+    cout << "Sort arr:  ";
     Print(a, n);
 }

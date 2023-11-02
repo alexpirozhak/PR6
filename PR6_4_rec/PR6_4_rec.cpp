@@ -27,10 +27,7 @@ int SumNegative(int* a, const int size, int i)
         else
             return SumNegative(a, size, i + 1);
     else
-        if (a[i] < 0)
-            return a[i];
-        else
-            return 0;
+        return 0;
 
 }
 
@@ -68,11 +65,23 @@ int limitProduct(int* a, int index1, int index2)
     else
         return a[index1 + 1];
 }
+
 int Task1_2(int* a, const int size)
 {
     int min = findMinIndex(a, size, 0, 0);
     int max = findMaxIndex(a, size, 0, 0);
     return limitProduct(a, min, max);
+}
+
+int findMinEvenIndex(int* a, const int size, int i, int& minEvenIndex)
+{
+    if (a[i] < a[minEvenIndex] && a[i] % 2 == 0)
+        minEvenIndex = i;
+
+    if (i < size - 1)
+        return findMinEvenIndex(a, size, i + 1, minEvenIndex);
+    else
+        return minEvenIndex;
 }
 
 void SortEven(int* a, const int size, int i)
@@ -83,26 +92,15 @@ void SortEven(int* a, const int size, int i)
         return;
     }
 
-    int min = a[i];
-    int minIndex = i;
-    for (int j = i + 1; j < size; j++)
-    {
-        if (a[j] % 2 != 0)
-            continue;
-
-        if (a[j] < a[minIndex])
-        {
-            min = a[j];
-            minIndex = j;
-        }
-    }
-    a[minIndex] = a[i];
-    a[i] = min;
+    int minEvenIndex = i;
+    findMinEvenIndex(a, size, i, minEvenIndex);
+    int minEven = a[minEvenIndex];
+    a[minEvenIndex] = a[i];
+    a[i] = minEven;
 
     if (i < size - 2)
         SortEven(a, size, i + 1);
 }
-
 
 int main()
 {
@@ -116,17 +114,17 @@ int main()
     int High = 100;
 
     Create(a, n, Low, High, 0);
-    cout << "Початоковий масив: ";
+    cout << "First arr: ";
     Print(a, n, 0);
 
     int sum = SumNegative(a, n, 0);
-    cout << "Сума відʼємених елементів масиву = " << sum << endl;
+    cout << "Sum Negative = " << sum << endl;
 
     int product = Task1_2(a, n);
-    cout << "Добуток елементів масиву між min i max = " << product << endl;
+    cout << "Product numbers from min till max = " << product << endl;
 
     SortEven(a, n, 0);
-    cout << "Сортований масив: ";
+    cout << "Sort arr:  ";
     for (int i = 0; i < n; i++)
         cout << setw(5) << a[i];
     cout << endl;

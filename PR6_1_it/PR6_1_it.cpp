@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <iomanip>
 #include <time.h>
 using namespace std;
 
@@ -11,7 +12,7 @@ void Create(int* s, const int size, const int Low, const int High)
 void Print(int* s, const int size)
 {
     for (int i = 0; i < size; i++)
-        cout << s[i] << " ";
+        cout << setw(3) << s[i];
     cout << endl;
 }
 
@@ -47,17 +48,17 @@ int main() {
     int Low = 4;
     int High = 16;
     Create(s, size, Low, High);
-    cout << "Початоковий масив: ";
+    cout << "First arr: ";
     Print(s, size);
 
     int k, sum;
     ElementsAndSum(s, size, k, sum);
 
-    cout << "Кількість елементів, які задовольняють критерій: " << k << endl;
-    cout << "Сума цих елементів: " << sum << endl;
+    cout << "Number: " << k << endl;
+    cout << "Sum: " << sum << endl;
 
     Change(s, size);
-    cout << "Новий масив: ";
+    cout << "New arr:   ";
     Print(s, size);
 
 

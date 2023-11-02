@@ -13,7 +13,7 @@ template <typename T>
 void Print(T* a, const int size)
 {
     for (int i = 0; i < size; i++)
-        cout << a[i] << " ";
+        cout << setw(3) << a[i];
     cout << endl;
 }
 
@@ -40,15 +40,15 @@ int main()
     int High = 100;
 
     Create(a, n, Low, High);
-    cout << "Початоковий масив: ";
+    cout << "First arr: ";
     Print(a, n);
 
     bool result;
     Check(a, n, result);
     if (result)
-        cout << "Масив посортований за неспаданням" << endl;
+        cout << "Sort arr" << endl;
     else
-        cout << "Умова не виконана" << endl;
+        cout << "Sort problem" << endl;
 
     return 0;
 }
