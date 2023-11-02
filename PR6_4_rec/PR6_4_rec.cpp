@@ -125,9 +125,7 @@ int main()
 
     SortEven(a, n, 0);
     cout << "Sort arr:  ";
-    for (int i = 0; i < n; i++)
-        cout << setw(5) << a[i];
-    cout << endl;
+    Print(a, n, 0);
 
     return 0;
 }

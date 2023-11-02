@@ -21,7 +21,7 @@ void ElementsAndSum(const int s[], int size, int& k, int& sum)
     k = 0;
     sum = 0;
     for (int i = 0; i < size; i++) {
-        if (s[i] % 2 == 0 || i % 3 != 0)
+        if (!(s[i] % 2 != 0 && i % 3 == 0))
         {
             k++;
             sum += s[i];
@@ -32,7 +32,7 @@ void ElementsAndSum(const int s[], int size, int& k, int& sum)
 void Change(int s[], int size)
 {
     for (int i = 0; i < size; i++) {
-        if (s[i] % 2 == 0 || i % 3 != 0)
+        if (!(s[i] % 2 != 0 && i % 3 == 0))
         {
             s[i] = 0;
         }

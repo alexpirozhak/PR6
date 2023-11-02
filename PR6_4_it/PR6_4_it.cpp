@@ -12,7 +12,7 @@ void Create(int* a, const int size, const int Low, const int High)
 void Print(int* a, const int size)
 {
     for (int i = 0; i < size; i++)
-        cout << setw(3) << a[i];
+        cout << setw(5) << a[i];
     cout << endl;
 }
 
